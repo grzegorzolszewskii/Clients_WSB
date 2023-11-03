@@ -15,23 +15,23 @@ public class Clients {
 
     public String activatePremiumAccount(String clientId) {
         Client client = clientsDict.get(clientId);
-        client.isPremium = true;
+        client.activatePremium();
         return clientId;
     }
 
     public String getClientFullName(String clientId) {
         Client client = clientsDict.get(clientId);
-        return client.firstName + " " + client.lastName;
+        return client.getClientFirstName() + " " + client.getClientLastName();
     }
 
     public LocalDateTime getClientCreationDate(String clientId) {
         Client client = clientsDict.get(clientId);
-        return client.creationDate;
+        return client.getCreationDate();
     }
 
     public boolean isPremiumClient(String clientId) {
         Client client = clientsDict.get(clientId);
-        return client.isPremium;
+        return client.isClientPremium();
     }
 
     public int getNumberOfClients() {
@@ -41,7 +41,7 @@ public class Clients {
     public int getNumberOfPremiumClients() {
         int count = 0;
         for (Client client : clientsDict.values()) {
-            if (client.isPremium) {
+            if (client.isClientPremium()) {
                 count++;
             }
         }
