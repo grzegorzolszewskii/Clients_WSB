@@ -23,9 +23,9 @@ public class Client {
     public String getClientLastName(){return this.lastName;}
     public LocalDateTime getCreationDate(){return this.creationDate;}
     public boolean isClientPremium(){return this.isPremium;}
-    public String getClientId() {return this.clientId;}
+    public String getClientId(){return this.clientId;}
 
-    public void activatePremium() {this.isPremium = true;}
-    public void deactivatePremium() {this.isPremium = false;}
+    public void activatePremium(){this.isPremium = true;}
+    public void deactivatePremium(){this.isPremium = false;}
 
 }

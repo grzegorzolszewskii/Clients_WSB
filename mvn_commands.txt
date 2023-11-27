@@ -1,0 +1,4 @@
+/* These command are necessary to run java project build with maven from terminal - tested on Ubuntu 22.04 */
+
+sudo mvn clean package
+sudo mvn exec:java -Dexec.mainClass="org.example.Client_Project.Main"
