@@ -16,6 +16,7 @@ public class Main {
         System.out.println(" --- --- --- ");
         System.out.println(clients.isPremiumClient("1"));
         System.out.println(clients.isPremiumClient("2"));
+        // System.out.println(clients.isPremiumClient("5"));
         System.out.println(" --- --- --- ");
         System.out.println(clients.getNumberOfClients());
         System.out.println(clients.getNumberOfPremiumClients());
