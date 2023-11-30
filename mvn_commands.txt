@@ -2,5 +2,5 @@
 
 sudo mvn clean package
 sudo mvn exec:java -Dexec.mainClass="org.example.Client_Project.Main"
-
+sudo mvn test
 
