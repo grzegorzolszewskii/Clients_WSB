@@ -18,6 +18,7 @@ class ClientsTest {
         Assertions.assertEquals(numberOfAllClients, 3);
     }
 
+    @Test
     void testPremiumClients(){
         ClientsUnderTests.createNewClient("Jan", "Nowak");
         ClientsUnderTests.createNewClient("Adamiak", "Adam");
