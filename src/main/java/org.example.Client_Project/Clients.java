@@ -10,6 +10,13 @@ public class Clients {
     public Map<String, Client> clientsDict = new HashMap<>();
     private static int ids = 0;
 
+    private Client getClientById(String clientId){
+        if (!clientsDict.containsKey(clientId)){
+            throw new ClientNotFoundException("Client with this ID cannot be found.");
+        }
+        return clientsDict.get(clientId);
+    }
+
     public String createNewClient(String firstName, String lastName) {
         Client newClient = new Client(firstName, lastName);
         String id_str = valueOf(ids);
@@ -19,42 +26,24 @@ public class Clients {
     }
 
     public String activatePremiumAccount(String clientId) {
-        if (clientsDict.containsKey(clientId)) {
-            Client client = clientsDict.get(clientId);
-            client.activatePremium();
-            return clientId;
-        }
-        else {
-            throw new ClientNotFoundException("Client with this ID cannot be found.");
-        }
+        Client client = getClientById(clientId);
+        client.activatePremium();
+        return clientId;
     }
 
     public String getClientFullName(String clientId) {
-        if (clientsDict.containsKey(clientId)) {
-            Client client = clientsDict.get(clientId);
-            return client.getClientFirstName() + " " + client.getClientLastName();
-        } else {
-            throw new ClientNotFoundException("Client with this ID cannot be found.");
-
-        }
+        Client client = getClientById(clientId);
+        return client.getClientFirstName() + " " + client.getClientLastName();
     }
 
     public LocalDateTime getClientCreationDate(String clientId) {
-        if (clientsDict.containsKey(clientId)) {
-            Client client = clientsDict.get(clientId);
-            return client.getCreationDate();
-        } else {
-            throw new ClientNotFoundException("Client with this ID cannot be found.");
-        }
+        Client client = getClientById(clientId);
+        return client.getCreationDate();
     }
 
     public boolean isPremiumClient(String clientId) {
-        if (clientsDict.containsKey(clientId)) {
-            Client client = clientsDict.get(clientId);
-            return client.isClientPremium();
-        } else {
-            throw new ClientNotFoundException("Client with this ID cannot be found.");
-        }
+        Client client = getClientById(clientId);
+        return client.isClientPremium();
     }
 
     public int getNumberOfClients() {
